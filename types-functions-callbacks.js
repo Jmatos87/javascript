@@ -49,6 +49,8 @@ console.assert(sum(4, 100) === 104);
 // as inputs and returns the average of the two. To avoid
 // repeating yourself, use your sum function inside 
 // of your average function.
+
+
 var average = function (num1,num2){
  var result = sum(num1,num2) 
  return result/2 }
@@ -64,8 +66,8 @@ console.assert(average(100,200) === 150)
  */
 
 var sum = function (num1,num2){
-	if (typeof num1 !== "number") {return null}
-	if (typeof num2 !== "number"){return null}
+	if (typeof num1 !== "number" || typeof num2 !== "number")
+        {return null}
 		
      
 	return num1 + num2  
@@ -82,10 +84,10 @@ console.assert(sum(true, 5) === null);
 // Write a function called isNegative that will tell 
 // whether a number is negative or not. 
 
+
+
 var isNegative = function (input){
-if (input>=0){return false
-}
-    return true
+    return input < 0 
 }
 
 
@@ -100,11 +102,13 @@ console.assert(isNegative(-999) === true)
 // function inside your sum funciton ***
 
 var sum = function (num1,num2){
-	var result = num1 +num2
-		if (isNegative(result) !== true){
+    if (typeof num1 !== "number" || typeof num2 !== "number")
+        {return null}
+	
+	if (isNegative(num1) || isNegative(num2)){
     	return null
         }
-    return result   
+    return num1 + num2  
 
 }
 
@@ -137,9 +141,11 @@ console.assert(X === 11)
 // function below. Make the following assertions
 // pass.
 
+
+
 var x = 10
-var increment= function (X){
-    return X+1}
+var increment= function (number){
+    return number+1}
 
     
 console.assert(x === 10)
@@ -227,8 +233,8 @@ console.assert(NUMBER === 48)
 // "YES." Otherwise, it will does nothing.
 
 var conditionallyInvoke = function(input){
-	if (ORACLE="YES"){ 
-		var result= input () }
+	if (ORACLE==="YES"){
+		input() }
 		
 }
 
@@ -245,12 +251,27 @@ console.assert(NUMBER === 96)
 
 // Make the following assertion work:
 
+
+var inFactory = function (){
+ return "hello world"
+}
+
+var factory = function (){
+return inFactory 
+}
+
 console.assert(factory()() === 'hello world')  // INCEPTION!
 
 
 // Part 11
 
 // Want more? 
+var output = function (input){
+    return input
+}
+var factory2 = function (){
+        return output } 
+
 
 console.assert(factory2()('you sly dog') === 'you sly dog')
 console.assert(factory2()(999) === 999)
@@ -258,6 +279,8 @@ console.assert(factory2()(999) === 999)
 // Part 12
 
 // This can't be healthy...
+
+
 
 console.assert(factory3('i have reached function nirvana')() === 'i have reached function nirvana')
 console.assert(factory3(100)() === 100)
