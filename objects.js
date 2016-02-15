@@ -172,20 +172,19 @@ console.assert(pluck(stooges, 'age')[2] === 60)
 // values reversed.
 
 
-var reverseObjects = function (array){
+var reverseObjects = function (arrayOfObjects){
  var reverseArray = []
- 
-    for(var i = 0; i< array.length; i++){
-     var singleObject = array[i]
-        for(var dang in singleObject){
-            singleObject[]
-            
+ var newObj = {}
+    for(var i = 0; i< arrayOfObjects.length; i++){
+     var singleObject = arrayOfObjects[i]
+        for(var prop in singleObject){
+        if(singleObject.hasOwnProperty(prop)){
+            newObj[singleObject[prop]] = prop;
         }    
      
     }
- 
- newUsers.push
-    
+        reverseArray.push(newObj[prop]) 
+}return reverseArray
 }
 
 var users = [{obama: 'president@gmail.com',hobby: 'basketball'},{trump: 'americamoneywin@yahoo.com', hobby:'dealmaking'},{bush: 'jeb!@hotmail.com',hobby:'portraiture'}]
