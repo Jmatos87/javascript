@@ -178,12 +178,12 @@ var reverseObjects = function (arrayOfObjects){
     for(var i = 0; i< arrayOfObjects.length; i++){
      var singleObject = arrayOfObjects[i]
         for(var prop in singleObject){
-        if(singleObject.hasOwnProperty(prop)){
+            if(singleObject.hasOwnProperty(prop)){
             newObj[singleObject[prop]] = prop;
-        }    
+            }    
      
     }
-        reverseArray.push(newObj[prop]) 
+        reverseArray.push(newObj) 
 }return reverseArray
 }
 
@@ -217,7 +217,7 @@ var sampleObject = {
 var planetTom = makeItTom(sampleObject)
 
 
-log(planetTom.name === 'Tom')
+
 
 
 // VVV caution: hints below VVV
